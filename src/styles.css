@@ -1,0 +1,933 @@
+:root {
+  color: #202521;
+  background: #eef1ed;
+  font-family: Inter, Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 15px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(238, 241, 237, 0.88)),
+    #eef1ed;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: auto;
+  background: #18221d;
+  color: #f8fbf3;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.brandMark {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #cff15d;
+  color: #17201c;
+  font-weight: 900;
+}
+
+.brand strong,
+.brand span {
+  display: block;
+}
+
+.brand strong {
+  font-size: 16px;
+}
+
+.brand span {
+  color: #b8c0b8;
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+.nav {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.nav button,
+.primary,
+.ghost,
+.itemHead button {
+  border: 0;
+  border-radius: 8px;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.nav button {
+  background: rgba(255, 255, 255, 0.04);
+  color: #d9e0d8;
+  justify-content: center;
+  padding: 10px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav button.active,
+.nav button:hover {
+  background: #304036;
+  color: #fff;
+  border-color: rgba(207, 241, 93, 0.28);
+}
+
+.briefCard {
+  display: grid;
+  gap: 12px;
+  background: #223029;
+  border: 1px solid #33443b;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+}
+
+.briefCard h2 {
+  margin: 0 0 2px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.formSection {
+  display: grid;
+  gap: 9px;
+  padding-top: 4px;
+}
+
+.formSection h3 {
+  margin: 0;
+  color: #eff5eb;
+  font-size: 13px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.formNote {
+  margin: 0;
+  color: #aeb8af;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.briefCard label {
+  display: grid;
+  gap: 6px;
+  color: #d8dfd6;
+  font-size: 13px;
+}
+
+.briefCard input,
+.briefCard select,
+.briefCard textarea {
+  width: 100%;
+  border: 1px solid #46584e;
+  border-radius: 8px;
+  padding: 9px 10px;
+  background: #111914;
+  color: #fff;
+  min-height: 38px;
+}
+
+.briefCard textarea {
+  min-height: 78px;
+  resize: vertical;
+  grid-column: 1 / -1;
+}
+
+.briefCard label:has(textarea),
+.briefCard label:nth-last-child(1),
+.briefCard label:nth-last-child(2),
+.briefCard label:nth-last-child(3) {
+  grid-column: 1 / -1;
+}
+
+.content {
+  padding: 26px;
+  overflow: auto;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid #dde4dc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 12px 36px rgba(30, 43, 34, 0.07);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  color: #627068;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  max-width: 820px;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.primary {
+  background: #17201c;
+  color: #fff;
+  padding: 0 15px;
+  white-space: nowrap;
+  min-height: 40px;
+}
+
+.workflow,
+.metrics,
+.cardGrid {
+  display: grid;
+  gap: 12px;
+}
+
+.workflow {
+  grid-template-columns: repeat(5, 1fr);
+  margin-bottom: 16px;
+}
+
+.workflowStep,
+.metric,
+.panel,
+.itemCard,
+.moduleCard,
+.proposalPaper {
+  background: #fff;
+  border: 1px solid #dce1d8;
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(30, 43, 34, 0.06);
+}
+
+.workflowStep {
+  padding: 12px;
+  min-height: 68px;
+}
+
+.workflowStep span {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #cff15d;
+  color: #17201c;
+  font-weight: 800;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.workflowStep strong {
+  font-size: 13px;
+}
+
+.metrics {
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 16px;
+}
+
+.metric {
+  padding: 15px;
+}
+
+.metric div {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  background: #eff4eb;
+  border-radius: 8px;
+  color: #17201c;
+  margin-bottom: 12px;
+}
+
+.metric svg {
+  width: 18px;
+}
+
+.metric span,
+.workflowStep span,
+.itemCard span,
+.moduleCard span {
+  color: #657168;
+}
+
+.metric span {
+  font-size: 13px;
+}
+
+.metric strong {
+  display: block;
+  font-size: 18px;
+  margin-top: 3px;
+}
+
+.panel {
+  padding: 18px;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.panelHeader h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.panelHeader p {
+  margin: 0;
+  color: #657168;
+}
+
+.ghost {
+  background: #edf2e9;
+  color: #17201c;
+  padding: 0 12px;
+}
+
+.cardGrid {
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+}
+
+.itemCard {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  min-height: 340px;
+}
+
+.itemCard.selected {
+  border-color: #91ba24;
+  box-shadow: 0 0 0 2px rgba(207, 241, 93, 0.45), 0 14px 36px rgba(38, 57, 42, 0.1);
+}
+
+.itemHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.itemHead span,
+.moduleCard span {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.itemHead h3,
+.moduleCard h3 {
+  margin: 4px 0 0;
+  font-size: 17px;
+}
+
+.itemHead button {
+  background: #17201c;
+  color: #fff;
+  padding: 0 12px;
+  flex: 0 0 auto;
+}
+
+.itemCard p,
+.moduleCard p,
+.proposalPaper p {
+  margin: 0;
+  color: #46514a;
+  line-height: 1.55;
+}
+
+.score {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.score strong {
+  font-size: 28px;
+}
+
+.score span {
+  font-size: 12px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chips span {
+  border-radius: 999px;
+  background: #edf2e9;
+  color: #2d3a32;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.priceList,
+.moduleCard dl {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 7px;
+  margin: auto 0 0;
+  font-size: 13px;
+}
+
+dt {
+  color: #657168;
+}
+
+dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.tableWrap {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+th,
+td {
+  text-align: left;
+  border-bottom: 1px solid #e4e8e0;
+  padding: 12px 10px;
+  vertical-align: top;
+}
+
+th {
+  background: #f4f6f1;
+  color: #3a443d;
+}
+
+.moduleList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.moduleCard {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  gap: 14px;
+}
+
+.proposal {
+  display: flex;
+  justify-content: center;
+}
+
+.proposalPaper {
+  width: min(920px, 100%);
+  padding: 34px;
+}
+
+.proposalPaper h2 {
+  margin: 0 0 16px;
+  font-size: 26px;
+}
+
+.proposalPaper h3 {
+  margin: 24px 0 10px;
+}
+
+.proposalPaper h4 {
+  margin: 3px 0 6px;
+  font-size: 18px;
+}
+
+.proposalPaper ul {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.65;
+}
+
+.proposalInfoGrid,
+.proposalTwoCol {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 14px 0 18px;
+}
+
+.proposalInfoGrid span,
+.proposalTwoCol p {
+  background: #f4f6f1;
+  border: 1px solid #e2e7df;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.proposalInfoGrid span {
+  color: #657168;
+  font-size: 13px;
+}
+
+.proposalInfoGrid strong {
+  display: block;
+  color: #202521;
+  margin-top: 4px;
+}
+
+.proposalModuleMap {
+  display: grid;
+  gap: 14px;
+}
+
+.proposalModuleMap article {
+  border: 1px solid #dfe5dc;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fbfcfa;
+}
+
+.proposalItemHead {
+  padding: 14px 16px;
+  background: #f1f5ed;
+  border-bottom: 1px solid #dfe5dc;
+}
+
+.proposalItemHead span {
+  color: #657168;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.proposalItemHead p {
+  margin-top: 0;
+}
+
+.proposalModuleRows {
+  display: grid;
+}
+
+.proposalModuleRow {
+  display: grid;
+  grid-template-columns: 180px 120px 1fr;
+  gap: 12px;
+  padding: 12px 16px;
+  border-top: 1px solid #edf0ea;
+  align-items: start;
+}
+
+.proposalModuleRow:first-child {
+  border-top: 0;
+}
+
+.proposalModuleRow span {
+  color: #657168;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.proposalModuleRow p {
+  margin: 0;
+}
+
+.estimate {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.estimate span {
+  background: #f4f6f1;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.textIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(16, 22, 18, 0.62);
+}
+
+.modal {
+  width: min(1040px, 100%);
+  max-height: min(860px, calc(100vh - 48px));
+  overflow: auto;
+  background: #fbfcfa;
+  border: 1px solid #dfe5dc;
+  border-radius: 8px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+}
+
+.modalHeader,
+.modalFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+}
+
+.modalHeader {
+  border-bottom: 1px solid #e3e8df;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.iconButton {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #dfe5dc;
+  border-radius: 8px;
+  background: #fff;
+  color: #202521;
+  font-size: 22px;
+}
+
+.modeSwitch {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 14px 20px 0;
+}
+
+.modeSwitch button,
+.modulePickGrid button {
+  border: 1px solid #dfe5dc;
+  border-radius: 8px;
+  background: #fff;
+  color: #202521;
+  min-height: 42px;
+}
+
+.modeSwitch button.active,
+.modulePickGrid button.active {
+  border-color: #91ba24;
+  background: #eff8d1;
+}
+
+.modalBody {
+  padding: 18px 20px;
+}
+
+.modalBody.twoCol {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 14px;
+}
+
+.modalPane {
+  border: 1px solid #e1e7de;
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px;
+}
+
+.modalPane h3,
+.modalBody h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+.modalPane label,
+.manualGrid label {
+  display: grid;
+  gap: 6px;
+  color: #46514a;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.modalPane input,
+.modalPane select,
+.modalPane textarea,
+.manualGrid input,
+.manualGrid textarea {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid #d5ddd2;
+  border-radius: 8px;
+  background: #fff;
+  color: #202521;
+  padding: 9px 10px;
+}
+
+.modalPane textarea,
+.manualGrid textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.hint {
+  margin: 8px 0 0;
+  color: #657168;
+  line-height: 1.5;
+}
+
+.previewPane {
+  background: #f7f9f5;
+}
+
+.previewList {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 9px;
+  margin: 0 0 14px;
+}
+
+.previewList dt {
+  color: #657168;
+}
+
+.previewList dd {
+  margin: 0;
+  font-weight: 650;
+}
+
+.conceptText {
+  margin-bottom: 8px;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.miniButton {
+  min-height: 30px;
+  border: 1px solid #cdd8c7;
+  border-radius: 8px;
+  background: #fff;
+  color: #202521;
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.miniButton:hover {
+  background: #eff8d1;
+  border-color: #91ba24;
+}
+
+.manualGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.manualGrid label:has(textarea) {
+  grid-column: 1 / -1;
+}
+
+.modulePickGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.modulePickGrid.compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.modulePickGrid button {
+  display: grid;
+  gap: 4px;
+  justify-items: start;
+  padding: 10px;
+  text-align: left;
+}
+
+.modulePickGrid span {
+  color: #657168;
+  font-size: 12px;
+}
+
+.modalFooter {
+  justify-content: flex-end;
+  border-top: 1px solid #e3e8df;
+  background: #f7f9f5;
+}
+
+@media (max-width: 1180px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    padding: 16px;
+  }
+
+  .workflow,
+  .metrics,
+  .cardGrid,
+  .moduleList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .brand {
+    margin-bottom: 2px;
+  }
+
+  .briefCard {
+    grid-template-columns: 1fr;
+  }
+
+  .formGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .formGrid label:has(textarea) {
+    grid-column: 1 / -1;
+  }
+
+  .briefCard textarea {
+    min-height: 76px;
+  }
+}
+
+@media (max-width: 760px) {
+  .content,
+  .sidebar {
+    padding: 14px;
+  }
+
+  .topbar,
+  .panelHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .workflow,
+  .metrics,
+  .cardGrid,
+  .moduleList,
+  .estimate {
+    grid-template-columns: 1fr;
+  }
+
+  .briefCard {
+    padding: 14px;
+  }
+
+  .formGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .briefCard h2,
+  .briefCard label:has(textarea),
+  .briefCard label:nth-last-child(1),
+  .briefCard label:nth-last-child(2),
+  .briefCard label:nth-last-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .briefCard textarea {
+    min-height: 72px;
+  }
+
+  h1 {
+    font-size: 21px;
+  }
+
+  .workflowStep {
+    min-height: 58px;
+  }
+
+  .moduleCard {
+    grid-template-columns: 1fr;
+  }
+
+  .proposalModuleRow {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .proposalInfoGrid,
+  .proposalTwoCol {
+    grid-template-columns: 1fr;
+  }
+
+  .modalBody.twoCol,
+  .manualGrid,
+  .modulePickGrid {
+    grid-template-columns: 1fr;
+  }
+}
